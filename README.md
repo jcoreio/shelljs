@@ -642,19 +642,6 @@ cp('this_file_does_not_exist', '/dev/null'); // dies here
 If `true` the script will die on errors. Default is `false`. This is
 analogous to Bash's `set -e`
 
-### config.throw
-Example:
-
-```javascript
-require('shelljs/global');
-config.throw = true;
-cp('this_file_does_not_exist', '/dev/null'); // Throws an error here
-/* more commands... */
-```
-
-If `true` the script will throw errors when they happen. Default is `false`.
-This option takes priority over `config.fatal`.
-
 ### config.verbose
 Example:
 

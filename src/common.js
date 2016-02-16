@@ -6,7 +6,6 @@ var _ls = require('./ls');
 var config = {
   silent: false,
   fatal: false,
-  throw: false,
   verbose: false,
 };
 exports.config = config;
@@ -37,9 +36,6 @@ function error(msg, _continue) {
     state.error = log_entry;
   else
     state.error += '\n' + log_entry;
-
-  if(config.throw)
-    throw new Error(log_entry);
 
   if (msg.length > 0)
     log(log_entry);
@@ -273,7 +269,7 @@ function wrap(cmd, fn, options) {
         console.log(e.stack || e);
         process.exit(1);
       }
-      if (config.fatal || config.throw)
+      if (config.fatal)
         throw e;
     }
 
